@@ -1,0 +1,33 @@
+{
+    "asignaturas": [
+      {
+        "id": 1,
+        "nombre": "Matematicas"
+      },
+      {
+        "id": 2,
+        "nombre": "Lenguaje"
+      },
+      {
+        "id": 3,
+        "nombre": "Ciencias"
+      }
+    ],
+    "usuarios": [
+      {
+        "id":1,
+        "email":"dani.briones@duocuc.cl",
+        "password": "danibrionesduoc",
+        "role": "usuario",
+        "isactive": true
+      }
+    ],
+    "registros": [
+      {
+        "id": "",
+        "nombre": "",
+        "password": "",
+        "email": ""
+      }
+    ]
+  }

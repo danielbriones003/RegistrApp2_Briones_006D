@@ -1,0 +1,147 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()" color="primary">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Registro</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-card>
+  <ion-card-header style="background-color:darkcyan">
+    <ion-card-title></ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+
+    <form [formGroup]="registerForm">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Nombre: </ion-label>
+          <ion-input type="text" formControlName="nombre"></ion-input>
+        </ion-item>
+
+          <div style="color:red;" *ngIf="registerForm.get('nombre')?.hasError('required')">
+            *Ingrese su nombre
+          </div>
+
+        <ion-item>
+          <ion-label position="floating">Contraseña: </ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+      </ion-list>
+
+        <div style="color:red;" *ngIf="registerForm.get('password')?.hasError('required')">
+          *Ingrese su contraseña
+        </div>
+
+      <ion-item>
+        <ion-label position="floating">Confirmar contraseña: </ion-label>
+        <ion-input type="password" formControlName="confirmarpassword"></ion-input>
+      </ion-item>
+
+        <div style="color:red;" *ngIf="registerForm.get('confirmarpassword')?.hasError('required')">
+          *Confirme su contraseña
+        </div>
+
+      <ion-item>
+        <ion-label position="floating">Email: </ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+
+        <div style="color:red;" *ngIf="registerForm.get('email')?.hasError('required')">
+          *Ingrese un email
+        </div>
+
+      <ion-item>
+        <ion-label position="floating">Username</ion-label>
+        <ion-input type="text" formControlName="username"></ion-input>
+      </ion-item>
+    
+        <div style="color:red;" *ngIf="registerForm.get('username')?.hasError('required')">
+          *Ingresa Username (debe tener 4 caracteres mínimo)  
+        </div>
+
+      <ion-item>
+        <ion-label position="floating">Sede: </ion-label>
+        <ion-input type="translucent"  name="sede" formControlName="sede"></ion-input>
+      </ion-item>
+
+      <div style="color:red;" *ngIf="registerForm.get('sede')?.hasError('required')">
+        *Ingresa la sede 
+      </div>
+      
+
+      <ion-list>
+        <ion-item>
+          <ion-select placeholder="Selecciona tu cargo academico" [multiple]="true">
+            <ion-select-option value="docente">Docente</ion-select-option>
+            <ion-select-option value="alumno">Alumno</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item>
+          <ion-select placeholder="Selecciona asignatura" [multiple]="true">
+            <ion-select-option value="Matematicas">Matematicas</ion-select-option>
+            <ion-select-option value="Lenguaje">Lenguaje</ion-select-option>
+            <ion-select-option value="ciencias">Ciencias</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <br>
+      <ion-item>
+        <ion-label>Selecciona año</ion-label>
+          <ion-select name="horas1" interface="popover" value="horas" multiple="true" placeholder="Selecciona años">
+            <ion-select-option value="2hrs">2020</ion-select-option>
+            <ion-select-option value="3hrs">2021</ion-select-option>
+            <ion-select-option value="4hrs">2022</ion-select-option>
+            <ion-select-option value="6hrs">2023</ion-select-option>
+          </ion-select>
+      </ion-item>
+      <br>
+      <ion-list>
+        <ion-label position="floating">Seleccione Jornada</ion-label>
+        <ion-radio-group name="jornada" value="jornada">
+          <ion-item>
+            <ion-label>Diurno</ion-label>
+            <ion-radio value="Diurno"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Vespertino</ion-label>
+            <ion-radio value="Vespertino"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+
+      <ion-item>
+        <ion-label>Horas Semanales Asignatura</ion-label>
+        <ion-item>
+          <ion-label>Selecciona la cantidad de horas</ion-label>
+          <ion-select name="horas2" interface="popover" value="horas" multiple="true" placeholder="Selecciona cantidad de horas">
+            <ion-select-option value="2hrs">2 Horas</ion-select-option>
+            <ion-select-option value="3hrs">3 Horas</ion-select-option>
+            <ion-select-option value="4hrs">4 Horas</ion-select-option>
+            <ion-select-option value="5hrs">5 Horas</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-item>
+
+      <ion-button (click)="Enviar()" expand="block" fill="solid" color="success" shape="round">
+        Enviar
+      </ion-button>
+    </form>
+  </ion-card-content>
+</ion-card>
+
+</ion-content>
